@@ -14,10 +14,7 @@ def is_rearrangement_possible(matrix):
             column_index += 1
             
         row_index += 1
-    if rearrangeable:
-        print "YES"
-    else:
-        print "NO"
+    print "YES" if rearrangeable else "NO"
 
 def read_and_sort_matrix_by_row():
     matrix_size = int(raw_input().strip())
