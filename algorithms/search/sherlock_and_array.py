@@ -21,8 +21,5 @@ while processed_cases < test_cases:
             left_sum += value
             right_sum -= array[index + 1]
         index += 1
-    if index_exists:
-        print "YES"
-    else:
-        print "NO"
+    print "YES" if index_exists else "NO"
     processed_cases += 1
