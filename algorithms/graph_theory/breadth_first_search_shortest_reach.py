@@ -29,14 +29,14 @@ def shortest_path(node_number, nodes_adjacency_list, starting_vertex):
     distances = [float("inf")] * (node_number + 1)
     node_queue = [starting_vertex]
     distances[starting_vertex] = 0
-    
+
     while node_queue:
         current_node = node_queue.pop(0)
         adjacent_nodes = nodes_adjacency_list[current_node]
         for adjacent_node in adjacent_nodes:
             if distances[current_node] + edge_weight < distances[adjacent_node]:
                 distances[adjacent_node] = distances[current_node] + edge_weight
-            if not visited[adjacent_node]:
+            if not visited[adjacent_node] and adjacent_node not in node_queue:
                 node_queue.append(adjacent_node)
         visited[current_node] = True
 
