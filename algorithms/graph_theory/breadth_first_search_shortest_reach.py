@@ -1,4 +1,4 @@
-from collections import OrderedDict
+from collections import OrderedDict, deque
 import math
 
 def print_distances(distance_vector):
@@ -27,11 +27,11 @@ def shortest_path(node_number, nodes_adjacency_list, starting_vertex):
     # node_number + 1 because the node indexes are given starting from 1.
     visited = [False] * (node_number + 1)
     distances = [float("inf")] * (node_number + 1)
-    node_queue = [starting_vertex]
+    node_queue = deque([starting_vertex])
     distances[starting_vertex] = 0
 
     while node_queue:
-        current_node = node_queue.pop(0)
+        current_node = node_queue.popleft()
         adjacent_nodes = nodes_adjacency_list[current_node]
         for adjacent_node in adjacent_nodes:
             if distances[current_node] + edge_weight < distances[adjacent_node]:
